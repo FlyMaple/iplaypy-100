@@ -1,0 +1,1 @@
+console.log(new Date(2019,0, 1).getTime())
