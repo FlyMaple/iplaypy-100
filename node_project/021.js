@@ -7,3 +7,26 @@
 // 玩蛇網python問題：請問，到了第10天早上想再吃時，卻發現只剩下一個桃子了。求第一天共摘了多少？
 
 // Python解題思路分析：這道題，需要採取逆向思維的方法來從後往前推算，思維清晰，思路活躍。
+
+var _ = require("lodash");
+
+function normalizeNumber(number, length, decimal) {
+  var base = Math.pow(10, decimal);
+
+  if (base === 1) {
+    return _.padStart(number, length, " ");
+  }
+  return _.padStart((Math.floor(number * base) / base).toFixed(2), length, " ");
+}
+
+var m = 1;
+for (var i = 0; i < 10; i++) {
+  console.log(
+    `第 ${normalizeNumber(10 - i, 2, 0)} 天有 ${normalizeNumber(
+      m,
+      4,
+      0
+    )} 個桃子`
+  );
+  m = (m + 1) * 2;
+}
